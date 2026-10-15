@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>MY STUDYY</title>
+<link href="https://fonts.googleapis.com/css2?family=Doto:wght@700&family=IBM+Plex+Sans+Arabic:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f2f2ef;--fg:#111;--dim:#85857f;--card:#fff;--line:#d4d4cf;--red:#e5251b;color-scheme:light dark;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0a0a0a;--fg:#f2f2ef;--dim:#7d7d79;--card:#151515;--line:#33332f}}
+:root[data-theme="dark"]{--bg:#0a0a0a;--fg:#f2f2ef;--dim:#7d7d79;--card:#151515;--line:#33332f}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;min-height:100%;background:var(--bg);color:var(--fg);font:400 15px/1.6 'IBM Plex Sans Arabic',system-ui,sans-serif}
+#app{max-width:560px;margin:0 auto;padding:18px 14px 110px}
+.logo,.big,.m,.pts{font-family:Doto,monospace;font-weight:700}
+.logo{font-size:26px}.logo i{color:var(--red);font-style:normal}
+.hero{margin:14px 0 18px}.big{font-size:56px;line-height:1.1;direction:ltr;text-align:start}
+.bar{height:8px;border-radius:9px;background:var(--line);overflow:hidden;margin:8px 0}.bar i{display:block;height:100%;background:var(--fg);border-radius:9px;transition:width .5s}
+.dim{color:var(--dim);font-size:13px}
+.row{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin:10px 0}
+.ch{border:1px solid var(--line);background:none;color:var(--fg);border-radius:99px;padding:7px 14px;font:400 13px 'IBM Plex Sans Arabic';cursor:pointer}.ch.on{background:var(--fg);color:var(--bg)}.ch.red{color:var(--red);border-color:var(--red)}
+.c{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:14px 16px;margin:10px 0;cursor:pointer}
+.c .r1,.c .r2,.c .r3{display:flex;justify-content:space-between;align-items:center;gap:8px}
+.c b{font-size:17px}.m{font-size:13px;direction:ltr;color:var(--dim)}.m.hot,.pts.low{color:var(--red)}
+.tag{font-size:11px;border:1px solid var(--line);border-radius:99px;padding:1px 9px;color:var(--dim)}.tag.i2{color:var(--red);border-color:var(--red)}.tag.i1{color:var(--fg);border-color:var(--fg)}
+.pts{font-size:12px}
+.fab{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(env(safe-area-inset-bottom,0px) + 18px);background:var(--red);color:#fff;border:0;border-radius:99px;padding:14px 26px;font:600 15px 'IBM Plex Sans Arabic';box-shadow:0 14px 30px -12px rgba(0,0,0,.5);cursor:pointer}
+input,select,textarea{width:100%;background:var(--card);color:var(--fg);border:1px solid var(--line);border-radius:14px;padding:10px 12px;font:400 15px 'IBM Plex Sans Arabic',sans-serif;outline:none}
+input:focus,select:focus,textarea:focus{border-color:var(--fg)}
+label.l{display:block;font-size:12px;color:var(--dim);margin:12px 0 4px}
+.f{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:6px 16px 16px;margin:12px 0}
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.pl{border:1px dashed var(--line);border-radius:18px;padding:12px 14px;margin:12px 0}.pl b{display:block;margin-bottom:4px}
+.cr{display:flex;gap:8px;align-items:center;margin:6px 0}.cr input[type=checkbox]{width:22px;height:22px;flex:none;accent-color:var(--red)}.cr .nm{border:0;background:none;padding:6px 4px}.cr .nm.d{text-decoration:line-through;color:var(--dim)}
+.x{border:0;background:none;color:var(--dim);font-size:20px;cursor:pointer}
+.dots{display:flex;gap:4px;margin:6px 0}.dots i{width:12px;height:12px;border-radius:50%;background:var(--line)}.dots i.ok{background:var(--fg)}.dots i.miss{background:var(--red)}
+.go{width:100%;border:0;background:var(--red);color:#fff;border-radius:16px;padding:14px;font:600 16px 'IBM Plex Sans Arabic';cursor:pointer;margin-top:6px}.go[disabled]{background:var(--line);color:var(--dim)}
+.top{display:flex;justify-content:space-between;align-items:center}
+.toast{position:fixed;top:calc(env(safe-area-inset-top,0px) + 14px);left:50%;transform:translateX(-50%);background:var(--fg);color:var(--bg);padding:10px 18px;border-radius:99px;z-index:99;font-weight:600;font-size:14px;animation:drop 3.2s ease both;max-width:92%;text-align:center}
+@keyframes drop{0%{opacity:0;transform:translate(-50%,-20px) scale(.9)}10%,85%{opacity:1;transform:translate(-50%,0)}100%{opacity:0;transform:translate(-50%,-10px)}}
+#ft{position:fixed;inset:0;z-index:50;background:var(--bg);display:flex;align-items:center;justify-content:center;padding:20px;overflow:auto}.fx{width:100%;max-width:400px;text-align:center}
+.rg{position:relative;width:min(74vw,320px);aspect-ratio:1;margin:18px auto}.rg.run{animation:pulse 4s ease-in-out infinite}@keyframes pulse{50%{transform:scale(1.03)}}
+.rg svg{position:absolute;inset:0;width:100%;height:100%;transform:rotate(-90deg)}
+.tt{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-family:Doto,monospace;font-weight:700;font-size:min(17vw,76px);direction:ltr}
+.phw{min-height:80px;display:flex;align-items:center;justify-content:center}.ph{font-size:22px;font-weight:600;line-height:1.6;animation:rise 6s ease both}
+@keyframes rise{0%{opacity:0;transform:translateY(30px) scale(.9);filter:blur(8px)}12%{opacity:1;transform:none;filter:none}85%{opacity:1}100%{opacity:0;transform:translateY(-24px) scale(1.04)}}
+.sw{display:flex;gap:6px;margin:8px 0}.sw i{width:30px;height:30px;border-radius:9px;border:1px solid var(--line)}
+.wrap{position:relative;width:min(78vw,300px);aspect-ratio:1;margin:26px auto}.wh{position:absolute;inset:0;border-radius:50%;border:3px solid var(--fg)}
+.wh span{position:absolute;left:50%;top:50%;width:64px;margin:-10px 0 0 -32px;text-align:center;font-size:12px;font-weight:600}
+.ptr{position:absolute;top:-18px;left:50%;transform:translateX(-50%);z-index:2;font-size:28px;color:var(--red)}
+#wl{position:fixed;inset:0;z-index:100;background:#000 radial-gradient(#1c1c1c 1.2px,transparent 1.2px) 0 0/26px 26px;color:#f2f2ef;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:18px;padding:24px;text-align:center}
+#wl .orb{position:relative;width:190px;height:190px}#wl .orb i{position:absolute;inset:0;border-radius:50%;border:2px dotted #e5251b;animation:spn 9s linear infinite}#wl .orb i+i{inset:28px;border-color:#f2f2ef66;animation-duration:6s;animation-direction:reverse}
+#wl .orb b{position:absolute;inset:62px;border-radius:50%;background:#e5251b;box-shadow:0 0 60px #e5251b99;animation:beat 2.4s ease-in-out infinite}
+@keyframes spn{to{transform:rotate(360deg)}}@keyframes beat{50%{transform:scale(1.18)}}
+#wl h1{font:700 42px Doto,monospace;margin:0;direction:ltr;letter-spacing:2px}#wl h1 span{display:inline-block;opacity:0;animation:pp .6s forwards}
+@keyframes pp{from{opacity:0;transform:translateY(20px) scale(.6)}to{opacity:1;transform:none}}
+#wl p{color:#8a8a86;margin:0;max-width:300px;line-height:1.8;opacity:0;animation:pp .8s 1.4s forwards}#wl .fl{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;opacity:0;animation:pp .8s 1.8s forwards}#wl .fl span{border:1px solid #333;border-radius:99px;padding:5px 12px;font-size:13px}#wl .go{opacity:0;animation:pp .8s 2.2s forwards}
+</style>
+</head>
+<body>
+<div id="app"></div>
+<script>
+const K='mazakrty_v1',PEN=10,IMP=['عادي','مهم','مهم جدًا'];
+let D={subs:[],sort:'pri',coins:0,owned:['classic'],theme:'classic',gpa:{c:'',t:'',m:4}},UI={view:'home',open:null,n:3};
+const $=s=>document.querySelector(s),esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+try{const x=JSON.parse(localStorage.getItem(K));if(x&&x.subs)D=Object.assign(D,x)}catch(e){}
+const save=()=>{try{localStorage.setItem(K,JSON.stringify(D))}catch(e){}};
+const dk=d=>new Date(d.getTime()-d.getTimezoneOffset()*6e4).toISOString().slice(0,10);
+const today=()=>dk(new Date()),u=s=>{const[y,m,d]=s.split('-');return Date.UTC(y,m-1,d)};
+const diff=(a,b)=>Math.round((u(b)-u(a))/864e5),addD=d=>new Date(u(d)+864e5).toISOString().slice(0,10);
+const nowM=()=>{const n=new Date();return n.getHours()*60+n.getMinutes()},tm=t=>{const[h,m]=t.split(':');return +h*60+ +m};
+const pf=p=>p%1?p.toFixed(1):p;
+const lec=s=>[],bk=s=>lec(s).filter(l=>!l.s&&l.d<=today()).length,stars=s=>'★'.repeat(s.str||3)+'☆'.repeat(5-(s.str||3));
+const stat=s=>{const T=s.ch.length,d=s.ch.filter(c=>c.d).length;return{T,d,p:T?Math.round(d/T*1000)/10:0}};
+function evalMiss(){let c=0;D.subs.forEach(s=>{if(!s.time)return;const t=tm(s.time),td=today();for(let d=s.tfrom||s.since;d<=td;d=addD(d)){if(s.log[d])continue;if(d<td||nowM()>t){s.log[d]='miss';s.pts=Math.max(0,s.pts-PEN);c=1}}});if(c)save()}
+function score(s){const{T,d}=stat(s),dl=s.exam?Math.max(.5,diff(today(),s.exam)):60;return s.exam&&diff(today(),s.exam)<0?-1:(1+s.imp*.5)*(1+(5-(s.str||3))*.15)*(((T-d)/(T||1))+(T?0:.5)+bk(s)*.2)*(10/dl)}
+function plan(s){const{T,d}=stat(s),R=T-d;if(!T)return{t:'لسه ما حددتش عدد الشابترز. أول ما تعرفه ضيفهم تحت وأنا أحسبلك الخطة.'};if(!s.exam)return{t:'حدد ميعاد الامتحان وأنا أحسبلك الخطة.'};const dl=diff(today(),s.exam);
+ if(dl<0)return{t:'الامتحان عدّى.'};if(!R)return{t:'خلّصت المنهج كله. راجع بس.'};if(dl===0)return{t:'امتحانك النهارده. راجع اللي فاضل وبالتوفيق.'};
+ const rev=dl>=4?2:dl>=2?1:0,sd=Math.max(1,dl-rev),per=Math.ceil(R/sd),nx=s.ch.filter(c=>!c.d).slice(0,per).map(c=>c.t);
+ const span=Math.max(1,diff(s.since,s.exam)-rev),exp=Math.min(T,Math.ceil(T*(diff(s.since,today())+1)/span)),dd=d-exp;
+ return{t:`باقي ${R} شابتر على ${dl} يوم${rev?` (آخر ${rev} ${rev>1?'يومين':'يوم'} مراجعة)`:''}.`,per,nx,dd}}
+function rowCard(s){const{T,d,p}=stat(s),dl=s.exam?diff(today(),s.exam):null,td=today(),lg=s.log[td];
+ return`<div class="c" data-a="open" data-i="${s.id}"><div class="r1"><b>${esc(s.name)}</b><span class="tag i${s.imp}">${IMP[s.imp]}</span></div><div class="dim" style="font-size:12px">${stars(s)}</div><div class="bar"><i style="width:${p}%"></i></div>
+ <div class="r2"><span class="dim">${T?`${d}/${T} شابتر · ${pf(p)}%`:'لسه معرفتش عدد الشابترز'}</span><span class="m ${dl!=null&&dl<=7&&dl>=0?'hot':''}">${dl==null?'':dl<0?'DONE':dl+' DAYS'}</span></div>
+ ${s.time?`<div class="r3" style="margin-top:8px"><span class="dim">⏰ ${s.time} <span class="pts ${s.pts<60?'low':''}">PTS ${s.pts}</span></span>${lg==='ok'?'<span class="dim">✓ ذاكرت النهارده</span>':lg==='miss'?'<span class="dim" style="color:var(--red)">فاتك النهارده</span>':`<button class="ch" data-a="ci" data-i="${s.id}">ذاكرت ✓</button>`}</div>`:''}</div>`}
+function home(){evalMiss();const S=D.subs;let T=0,Dn=0;S.forEach(s=>{const x=stat(s);T+=x.T;Dn+=x.d});const pr=T?Dn/T*100:0,td=today();
+ const ex=S.filter(s=>s.exam&&diff(td,s.exam)>=0).sort((a,b)=>a.exam<b.exam?-1:1)[0];
+ const nxt=S.filter(s=>s.time&&!s.log[td]&&tm(s.time)>nowM()).sort((a,b)=>tm(a.time)-tm(b.time))[0];
+ const so={pri:(a,b)=>score(b)-score(a),exam:(a,b)=>(a.exam||'9')<(b.exam||'9')?-1:1,prog:(a,b)=>stat(a).p-stat(b).p}[D.sort];
+ $('#app').innerHTML=`<div class="top"><div class="logo" data-a="wel">MY STUDYY<i>.</i></div><div class="row" style="margin:0"><button class="ch" data-a="snd">${D.snd===0?'🔇':'🔊'}</button><button class="ch on" data-a="shop">🪙 ${D.coins}</button><button class="ch" data-a="theme">☾</button></div></div>
+ <div class="hero"><div class="big">${pf(Math.round(pr*10)/10)}%</div><div class="bar"><i style="width:${pr}%"></i></div><div class="dim">${Dn} من ${T} شابتر خلصت${ex?` · أقرب امتحان: ${esc(ex.name)} بعد ${diff(td,ex.exam)} يوم`:''}${nxt?` · الجاية: ${esc(nxt.name)} الساعة ${nxt.time}`:''}</div></div>
+ <button class="go" data-a="study" style="margin:0 0 4px">ابدأ مذاكرة دلوقتي ▶</button><button class="go" data-a="spin" style="margin:0 0 4px;background:var(--fg);color:var(--bg)">🎡 تحدي عشوائي</button><div class="row">${[['pri','الأولوية'],['exam','الامتحان'],['prog','الأقل تقدمًا']].map(([k,t])=>`<button class="ch ${D.sort===k?'on':''}" data-a="sort" data-k="${k}">${t}</button>`).join('')}</div>
+ ${S.slice().sort(so).map(rowCard).join('')}${gpaBox()}${rwBox()}<button class="fab" data-a="add">+ مادة</button>`}
+function detail(s){const{T,d,p}=stat(s),pl=plan(s),td=today();const lg=s.log[td];
+ const dots=[...Array(14)].map((_,i)=>{const k=dk(new Date(Date.now()-(13-i)*864e5));return`<i class="${s.log[k]==='miss'?'miss':s.log[k]==='ok'?'ok':''}"></i>`}).join('');
+ $('#app').innerHTML=`<div class="top"><button class="ch" data-a="back">← رجوع</button><button class="ch red" data-a="del">احذف المادة</button></div>
+ <div class="f"><label class="l">اسم المادة</label><input data-k="name" value="${esc(s.name)}"><div class="g2"><div><label class="l">الأهمية</label><select data-k="imp">${IMP.map((t,i)=>`<option value="${i}" ${s.imp===i?'selected':''}>${t}</option>`).join('')}</select></div><div><label class="l">ميعاد الامتحان</label><input type="date" data-k="exam" value="${s.exam||''}"></div></div></div>
+ <div class="f"><label class="l">أنت قوي قد إيه في المادة دي؟</label><div class="row">${[1,2,3,4,5].map(n=>`<button class="ch ${(s.str||3)>=n?'on':''}" data-a="star" data-n="${n}">★</button>`).join('')}</div></div><button class="go" data-a="study" data-i="${s.id}" style="margin:0 0 4px">ذاكر المادة دي دلوقتي ▶</button><div class="hero"><div class="big">${pf(p)}%</div><div class="bar"><i style="width:${p}%"></i></div><div class="dim">${d} من ${T} شابتر</div></div>
+ <div class="pl"><b>خطة المذاكرة</b>${pl.t}${pl.per?`<br>النهارده: ${pl.nx.map(esc).join('، ')} (${pl.per} شابتر)`:''}${pl.dd!=null?`<br><span style="color:${pl.dd<0?'var(--red)':'inherit'}">${pl.dd<0?'متأخر '+(-pl.dd)+' شابتر عن الخطة':pl.dd>0?'سابق الخطة بـ '+pl.dd+' شابتر':'ماشي بالظبط على الخطة'}</span>`:''}</div>
+ <div class="f"><label class="l">وقت مذاكرة يومي ثابت (لو فاتك بتخسر ${PEN} نقط)</label><div class="row"><input type="time" data-k="time" value="${s.time||''}" style="width:auto">${s.time?'<button class="ch" data-a="notime">إلغاء</button>':''}</div>
+ ${s.time?`<div class="row"><span class="pts ${s.pts<60?'low':''}" style="font-size:20px">PTS ${s.pts}</span>${lg==='ok'?'<span class="dim">✓ ذاكرت النهارده</span>':lg==='miss'?'<span class="dim" style="color:var(--red)">فاتك النهارده</span>':'<button class="ch on" data-a="ci" data-i="'+s.id+'">ذاكرت النهارده ✓</button>'}</div><div class="dots">${dots}</div><div class="dim">آخر 14 يوم</div>`:''}</div>
+ <div class="f"><label class="l">الشابترز</label>${s.ch.map((c,j)=>`<div class="cr"><input type="checkbox" data-a="tg" data-j="${j}" ${c.d?'checked':''}><input class="nm ${c.d?'d':''}" data-k="cn" data-j="${j}" value="${esc(c.t)}"><button class="x" data-a="rm" data-j="${j}">×</button></div>${fileBox(c,j)}`).join('')}<button class="ch" data-a="addch" style="margin-top:8px">+ شابتر</button></div>`}
+const form=(i,v={})=>`<div class="f" data-f="${i}"><label class="l">اسم المادة</label><input data-q="name" value="${esc(v.name||'')}" placeholder="مثلًا: فيزياء">
+ <label class="l">الشابترز: اسم كل شابتر في سطر، أو رقم بس (مثلًا 8)</label><textarea data-q="ch" rows="3">${esc(v.ch||'')}</textarea><label class="l" style="display:flex;gap:8px;align-items:center"><input type="checkbox" data-q="unk" style="width:20px" ${v.unk?'checked':''}>لسه معرفش عدد الشابترز، هضيفهم بعدين</label>
+ <div class="g2"><div><label class="l">خلّصت كام شابتر؟</label><input type="number" min="0" data-q="done" value="${v.done||0}"></div><div><label class="l">ميعاد الامتحان</label><input type="date" data-q="exam" value="${v.exam||''}"></div>
+ <div><label class="l">الأهمية</label><select data-q="imp">${IMP.map((t,k)=>`<option value="${k}" ${+v.imp===k?'selected':''}>${t}</option>`).join('')}</select></div><div><label class="l">وقت يومي (اختياري)</label><input type="time" data-q="time" value="${v.time||''}"></div><div><label class="l">قوتك في المادة</label><select data-q="str">${[1,2,3,4,5].map(n=>`<option value="${n}" ${+(v.str||3)===n?'selected':''}>${'★'.repeat(n)}</option>`).join('')}</select></div></div></div>`;
+const collect=()=>[...document.querySelectorAll('[data-f]')].map(f=>{const o={};f.querySelectorAll('[data-q]').forEach(x=>o[x.dataset.q]=x.type==='checkbox'?x.checked:x.value);return o});
+function setup(vals){const first=!D.subs.length&&!UI.add;vals=vals||[];while(vals.length<UI.n)vals.push({});vals.length=UI.n;
+ $('#app').innerHTML=`<div class="top"><div class="logo">MY STUDYY<i>.</i></div>${first?'':'<button class="ch" data-a="back">← رجوع</button>'}</div><p class="dim" style="font-size:15px">${first?'أهلًا بيك! رتّب موادك مرة واحدة وأنا هظبطلك الخطة والتقدم والأولويات، ومتقلقش.':'أضف مواد جديدة.'}</p>
+ <div class="row"><span class="dim">كام مادة؟</span>${[1,2,3,4,5,6,7,8].map(n=>`<button class="ch ${UI.n===n?'on':''}" data-a="cnt" data-n="${n}">${n}</button>`).join('')}</div>${vals.map((v,i)=>form(i,v)).join('')}<button class="go" data-a="start">ابدأ</button>`}
+function create(){const td=today();collect().forEach(v=>{if(!v.name.trim())return;let L=v.ch.split('\n').map(x=>x.trim()).filter(Boolean);if(L.length===1&&/^\d+$/.test(L[0]))L=[...Array(Math.min(+L[0],60))].map((_,i)=>'شابتر '+(i+1));
+ const s={id:Date.now()+Math.random(),name:v.name.trim(),imp:+v.imp||0,str:+v.str||3,lec:[],exam:v.exam||'',ch:(v.unk?[]:L).map((t,i)=>({t,d:i<+v.done})),time:v.time||'',pts:100,log:{},since:td};if(s.time)s.tfrom=nowM()>tm(s.time)?addD(td):td;D.subs.push(s)});save();UI={view:'home',n:3}}
+const cur=()=>D.subs.find(s=>s.id==UI.open);
+const TH={classic:{n:'كلاسيك',c:0},midnight:{n:'منتصف الليل',c:120,v:{bg:'#0b1020',fg:'#e8ecff',dim:'#7f8ab3',card:'#131a33',line:'#2a3560',red:'#6c8cff'}},sunset:{n:'غروب',c:180,v:{bg:'#1a0f14',fg:'#ffe8d6',dim:'#b58a7a',card:'#26151b',line:'#4a2a33',red:'#ff7a45'}},forest:{n:'غابة',c:180,v:{bg:'#0d1410',fg:'#e6f2e8',dim:'#7fa088',card:'#142019',line:'#2a4033',red:'#5fd68a'}},sakura:{n:'ساكورا',c:250,v:{bg:'#fff1f4',fg:'#3b1020',dim:'#a0707e',card:'#ffffff',line:'#f0c9d3',red:'#e0457b'}},sand:{n:'رمل',c:250,v:{bg:'#efe6d6',fg:'#2b2118',dim:'#8a7b66',card:'#f8f2e6',line:'#d8cbb2',red:'#c4562a'}},terminal:{n:'تيرمينال',c:400,v:{bg:'#000',fg:'#39ff6a',dim:'#1f9a40',card:'#05100a',line:'#0f4a22',red:'#39ff6a'}}};
+const PH=['كمّل، إنت ماشي كويس 🔥','خد نفس عميق وكمّل 💪','كل دقيقة بتفرق','إنت بتبني مستقبلك دلوقتي ✨','التليفون يقدر يستنى','قربت، متوقفش','فخور بيك والله 🌟','حتة صغيرة كمان وتخلص'];
+function applyTheme(){const v=(TH[D.theme]||{}).v,r=document.documentElement.style;['bg','fg','dim','card','line','red'].forEach(k=>v?r.setProperty('--'+k,v[k]):r.removeProperty('--'+k))}
+function toast(m){const e=document.createElement('div');e.className='toast';e.textContent=m;document.body.appendChild(e);setTimeout(()=>e.remove(),3200)}
+function gain(n,msg){D.coins=Math.max(0,D.coins+n);if(msg){sfx(n>0?'ok':'low');hap(n>0?[10,30,10]:30);toast(msg);(D.hist=D.hist||[]).unshift({n,w:msg});D.hist.length=Math.min(D.hist.length,10)}}
+const todayCount=()=>D.subs.reduce((a,s)=>a+s.ch.filter(c=>c.d&&c.dt===today()).length,0);
+function buy(k){const t=TH[k];if(D.owned.includes(k)){D.theme=k}else if(D.coins>=t.c){D.coins-=t.c;D.owned.push(k);D.theme=k;toast('مبروك الثيم الجديد! 🎨');sfx('buy');hap([15,40,20])}else{toast('محتاج '+(t.c-D.coins)+' نقطة كمان')}applyTheme();save()}
+const gpaBox=()=>{const g=D.gpa,c=+g.c,t=+g.t,p=c&&t?Math.min(100,c/t*100):0;return`<div class="f" style="padding-top:12px"><div class="top"><b>المعدل (GPA)</b><select data-g="m" style="width:auto;padding:2px 8px"><option ${g.m==4?'selected':''}>4</option><option ${g.m==5?'selected':''}>5</option></select></div><div class="g2"><div><label class="l">معدلك الحالي</label><input type="number" step="0.01" data-g="c" value="${g.c}"></div><div><label class="l">هدفك</label><input type="number" step="0.01" data-g="t" value="${g.t}"></div></div>${c&&t?`<div class="bar"><i style="width:${p}%"></i></div><div class="dim">${c>=t?'وصلت للهدف، عاش! 🎉':'باقي '+(t-c).toFixed(2)+' وتوصل لهدفك'}</div>`:''}</div>`};
+const lecBox=s=>{const L=lec(s).map((l,i)=>({...l,i})).sort((a,b)=>a.d<b.d?-1:1),td=today();return`<div class="f"><label class="l">جدول المحاضرات والدروس (عشان ميتراكمش عليك حاجة)</label>${bk(s)?`<div class="pl" style="border-color:var(--red)">عندك ${bk(s)} محاضرة متراكمة. ذاكرها الأول قبل ما يزيد عليك.</div>`:''}${L.map(l=>`<div class="cr"><input type="checkbox" data-a="lt" data-j="${l.i}" ${l.s?'checked':''}><span style="flex:1;${l.s?'text-decoration:line-through;color:var(--dim)':''}">${esc(l.t)} <span class="m ${!l.s&&l.d<td?'hot':''}">${l.d===td?'النهارده':l.d}</span></span><button class="x" data-a="rl" data-j="${l.i}">×</button></div>`).join('')}<div class="g2" style="margin-top:8px"><input type="date" id="ld"><input id="lt" placeholder="اسم المحاضرة"></div><button class="ch" data-a="addlec" style="margin-top:8px">+ ضيف محاضرة</button></div>`};
+function shop(){$('#app').innerHTML=`<div class="top"><button class="ch" data-a="back">← رجوع</button><span class="m" style="font-size:18px;color:var(--fg)">🪙 ${D.coins}</span></div><p class="dim" style="font-size:14px">كل شابتر بتخلصه بيجيبلك نقط، ولو خلصت أكتر من شابتر في اليوم الواحد البونص بيزيد. اشتري بيها ثيمات للتطبيق.</p>`+Object.entries(TH).map(([k,t])=>{const own=D.owned.includes(k),on=D.theme===k,v=t.v||{bg:'#f2f2ef',card:'#fff',fg:'#111',red:'#e5251b'};return`<div class="c" style="cursor:default"><div class="r1"><b>${t.n}</b><span class="m">${own?(on?'مستخدم':'عندك'):t.c+' نقطة'}</span></div><div class="sw"><i style="background:${v.bg}"></i><i style="background:${v.card}"></i><i style="background:${v.fg}"></i><i style="background:${v.red}"></i></div><button class="ch ${on?'on':''}" data-a="buy" data-k="${k}">${on?'شغّال دلوقتي':own?'استخدمه':'اشتريه'}</button></div>`}).join('')+((D.hist||[]).length?'<label class="l">آخر النقط اللي كسبتها</label>'+D.hist.map(h=>`<div class="dim">${esc(h.w)}</div>`).join(''):'')}
+let AC;function sfx(k){if(D.snd===0)return;try{AC=AC||new(window.AudioContext||window.webkitAudioContext)();AC.resume&&AC.resume();const q={tap:[[520,.07,.035]],tick:[[900,.03,.025]],ok:[[660,.12],[880,.18]],win:[[660,.12],[880,.12],[1100,.12],[1320,.28]],low:[[300,.2],[220,.3]],buy:[[740,.1],[988,.22]]}[k]||[];q.forEach(([f,d,v],i)=>{const t=AC.currentTime+i*.11,o=AC.createOscillator(),g=AC.createGain();o.type='sine';o.frequency.value=f;g.gain.setValueAtTime(0,t);g.gain.linearRampToValueAtTime(v||.05,t+.02);g.gain.exponentialRampToValueAtTime(.0001,t+d);o.connect(g).connect(AC.destination);o.start(t);o.stop(t+d+.05)})}catch(e){}}
+const hap=p=>{try{D.snd!==0&&navigator.vibrate&&navigator.vibrate(p)}catch(e){}};
+document.addEventListener('click',e=>{if(e.target.closest('button,select,.c,[type=checkbox]')){sfx('tap');hap(8)}},true);
+function welcome(){const o=document.createElement('div');o.id='wl';o.innerHTML=`<div class="orb"><i></i><i></i><b></b></div><h1>${[...'MY STUDYY'].map((c,i)=>`<span style="animation-delay:${.15*i}s">${c===' '?'&nbsp;':c}</span>`).join('')}</h1><p>مذاكرتك بقت لعبة حلوة. رتّب موادك، اكسب نقط، وحقق هدفك خطوة خطوة.</p><div class="fl"><span>📚 خطة ذكية</span><span>⏱ تايمر وتحفيز</span><span>🎡 تحديات</span><span>🎨 ثيمات</span></div><button class="go" style="width:auto;padding:14px 44px" id="wgo">يلا نبدأ</button>`;document.body.appendChild(o);sfx('win');$('#wgo').onclick=()=>{D.seen=1;save();o.style.transition='opacity .5s';o.style.opacity=0;setTimeout(()=>o.remove(),500)}}
+const rwBox=()=>{const r=D.rw||{a:'',b:'',f:0},g=D.gpa;let T=0,Dn=0;D.subs.forEach(s=>{const x=stat(s);T+=x.T;Dn+=x.d});const hit=+g.c&&+g.t&&+g.c>=+g.t,ok=(T>0&&Dn===T)||(r.f&&hit),bad=r.f&&+g.c&&+g.t&&+g.c<+g.t;return`<div class="f" style="padding-top:12px"><b>مكافأتي وعقابي</b><label class="l">لو حققت هدف كل المواد هكافئ نفسي بـ</label><input data-r="a" value="${esc(r.a)}" placeholder="مثلًا: خروجة وأكلة حلوة"><label class="l">ولو درجتي طلعت وحشة، العقاب</label><input data-r="b" value="${esc(r.b)}" placeholder="مثلًا: أسبوع من غير سوشيال"><label class="l" style="display:flex;gap:8px;align-items:center"><input type="checkbox" data-r="f" style="width:20px" ${r.f?'checked':''}>النتيجة النهائية طلعت</label>${ok&&r.a?`<div class="pl"><b>🎁 المكافأة اتفتحت!</b>${esc(r.a)}</div>`:''}${bad&&r.b?`<div class="pl" style="border-color:var(--red)"><b>العقاب بتاعك:</b>${esc(r.b)}</div>`:''}</div>`};
+const RING='<div class="rg run"><svg viewBox="0 0 200 200"><circle cx="100" cy="100" r="92" fill="none" stroke="var(--line)" stroke-width="3" stroke-dasharray="1 7.8" stroke-linecap="round"/><circle id="fc" cx="100" cy="100" r="92" fill="none" stroke="var(--red)" stroke-width="4" stroke-linecap="round" pathLength="100" stroke-dasharray="0 100"/></svg><div class="tt" id="tn"></div></div>';
+function openSpin(){if(!D.subs.length)return;const n=D.subs.length,sg=360/n,o=document.createElement('div');o.id='ft';o.innerHTML=`<div class="fx"><div class="dim">لف العجلة ونشوف مين المادة</div><div class="wrap"><div class="ptr">▼</div><div class="wh" id="wh" style="background:conic-gradient(${D.subs.map((_,i)=>`${i%2?'var(--card)':'var(--line)'} ${i*sg}deg ${(i+1)*sg}deg`).join(',')})">${D.subs.map((s,i)=>`<span style="transform:rotate(${(i+.5)*sg}deg) translateY(-110px)">${esc(s.name.slice(0,9))}</span>`).join('')}</div></div><div id="cr"></div><div class="row" style="justify-content:center"><button class="go" id="sp" data-a="sp" style="width:auto;padding:14px 34px">لف 🎡</button><button class="ch" data-a="fq">خروج</button></div></div>`;document.body.appendChild(o);T0={n,sp:0}}
+function doSpin(){if(T0.sp)return;T0.sp=1;const w=$('#wh'),i=pickSub(),sg=360/T0.n,R=360*6-(i+.5)*sg+(Math.random()-.5)*sg*.5;w.style.transition='transform 4.6s cubic-bezier(.12,.7,.1,1)';w.style.transform=`rotate(${R}deg)`;let k=0;const tk=setInterval(()=>{sfx('tick');hap(5);if(++k>26)clearInterval(tk)},170);
+ setTimeout(()=>{if(!T0)return;const s=D.subs[i];D.lastSpin=s.id;save();const c=s.ch.find(x=>!x.d),m=[15,20,25,30][Math.floor(Math.random()*4)];T0.s=s;T0.task=c?'خلّص شابتر: '+c.t:'ذاكر المادة بتركيز';T0.dur=T0.rem=m*60;sfx('win');hap([20,40,20]);$('#sp').style.display='none';$('#cr').innerHTML=`<div class="pl" style="margin:14px 0"><b>الحظ وقع على: ${esc(s.name)} 🎯</b>${esc(T0.task)}<br>معاك ${m} دقيقة. لو خلصت: +20 نقطة ونقاطك كلها ×2 🚀<br>ولو الوقت خلص: -20 نقطة</div><button class="go" data-a="acc">قبلت التحدي ⚡</button>`},4800)}
+function chStart(){const s=T0.s;$('#ft').innerHTML=`<div class="fx"><div class="dim">تحدي: ${esc(s.name)}</div><div style="font-size:18px;font-weight:600">${esc(T0.task)}</div>${RING}<div class="phw" id="phw"></div><div class="row" style="justify-content:center"><button class="go" data-a="chok" style="width:auto;padding:14px 30px">خلصت ✓</button><button class="ch" data-a="chno">استسلم</button></div></div>`;ftDraw();phr('الساعة بتجري… يلا ⚡');T0.live=1;T0.end=Date.now()+T0.rem*1000;T0.t=setInterval(chTick,1000)}
+function chTick(){T0.rem=Math.max(0,Math.ceil((T0.end-Date.now())/1000));ftDraw();if(T0.rem>0&&T0.rem%300===0)phr('باقي '+T0.rem/60+' دقيقة، شد حيلك ⚡');if(T0.rem<=0)chLose()}
+function chWin(){clearInterval(T0.t);const c=T0.s.ch.find(x=>!x.d);if(c){c.d=true;c.aw=10;c.dt=today()}D.coins=(D.coins+20)*2;(D.hist=D.hist||[]).unshift({n:0,w:'🎡 كسبت التحدي! النقاط × 2'});save();ftClose();toast('🎉 كسبت التحدي! +20 ونقاطك اتضاعفت لـ '+D.coins);sfx('win');hap([30,50,30,50,80]);draw()}
+function chLose(r){clearInterval(T0.t);ftClose();gain(-20,r||'⏰ التحدي فشل، اتخصم منك 20 نقطة');draw()}
+function pickSub(){const L=D.subs.map((s,i)=>({i,w:s.exam&&diff(today(),s.exam)<0?0:Math.max(.2,score(s))+.2}));let P=L.filter(x=>String(D.subs[x.i].id)!==String(D.lastSpin)&&x.w>0);if(!P.length)P=L.filter(x=>x.w>0);if(!P.length)P=L;let r=Math.random()*P.reduce((a,x)=>a+x.w,0);for(const x of P){r-=x.w;if(r<=0)return x.i}return P[0].i}
+let DB;const idb=()=>DB||(DB=new Promise((res,rej)=>{const r=indexedDB.open('mystudyy',1);r.onupgradeneeded=()=>r.result.createObjectStore('f');r.onsuccess=()=>res(r.result);r.onerror=()=>rej()}));
+const idbOp=(m,...a)=>idb().then(db=>new Promise((res,rej)=>{const q=db.transaction('f',m==='get'?'readonly':'readwrite').objectStore('f')[m](...a);q.onsuccess=()=>res(q.result);q.onerror=()=>rej()}));
+const fileBox=(c,j)=>`<div style="margin:-2px 0 10px;padding-inline-start:32px">${(c.f||[]).map((f,k)=>`<div class="cr" style="margin:2px 0"><span data-a="pdf" data-j="${j}" data-k="${k}" style="flex:1;cursor:pointer;font-size:13px">📄 ${esc(f.n)}</span><button class="x" data-a="fu" data-j="${j}" data-k="${k}">↑</button><button class="x" data-a="fd" data-j="${j}" data-k="${k}">↓</button><button class="x" data-a="fx" data-j="${j}" data-k="${k}">×</button></div>`).join('')}<label class="ch" style="display:inline-block;font-size:12px;padding:3px 12px;cursor:pointer">+ PDF<input type="file" accept="application/pdf" multiple hidden data-pj="${j}"></label></div>`;
+async function upPdf(j,fl){const s=cur(),c=s.ch[j];for(const f of fl){if(f.size>25e6){toast('الملف كبير أوي (أقصى 25 ميجا)');continue}const id='f'+Date.now()+Math.random().toString(36).slice(2,6);try{await idbOp('put',f,id);(c.f=c.f||[]).push({id,n:f.name.replace(/\.pdf$/i,''),z:f.size});sfx('ok')}catch(e){toast('مقدرتش أحفظ الملف، جرّب تاني')}}save();draw()}
+async function viewPdf(f){try{const b=await idbOp('get',f.id);if(!b){toast('الملف مش موجود');return}const u=URL.createObjectURL(b),o=document.createElement('div');o.id='ft';o.style.cssText='flex-direction:column;align-items:stretch;justify-content:flex-start;padding:10px';o.innerHTML=`<div class="top" style="margin-bottom:8px"><button class="ch" id="pc">← رجوع</button><a class="ch" href="${u}" download="${esc(f.n)}.pdf" target="_blank" style="text-decoration:none">تحميل / فتح</a></div><iframe src="${u}" style="flex:1;border:0;border-radius:14px;background:#fff;width:100%"></iframe>`;document.body.appendChild(o);$('#pc').onclick=()=>{o.remove();URL.revokeObjectURL(u)}}catch(e){toast('مقدرتش أفتح الملف')}}
+document.addEventListener('visibilitychange',()=>{if(!T0||!(T0.run>0||T0.live))return;if(document.hidden){T0.hid=Date.now()}else if(T0.hid){const g=Date.now()-T0.hid;T0.hid=0;if(g>12e4){if(T0.live)chLose('خرجت من التطبيق أكتر من دقيقتين، التحدي اتحسب خسارة 😕');else{clearInterval(T0.t);ftClose();gain(-10,'خرجت من التطبيق أكتر من دقيقتين، المذاكرة اتحسبت خسارة 😕');draw()}}else toast('رجعت في الوقت، كمّل 👏')}});
+let T0=null;const mm=s=>String(Math.floor(s/60)).padStart(2,'0')+':'+String(s%60).padStart(2,'0');
+function openStudy(id){if(!D.subs.length)return;const o=document.createElement('div');o.id='ft';o.innerHTML='<div class="fx"><div id="fh"><div class="dim">هتذاكر إيه؟ (النقط بتتحسب لما العداد يخلص كله، والخروج من التطبيق أكتر من دقيقتين = خسارة)</div><select id="fs" style="margin:8px 0"></select><div class="row" id="fp" style="justify-content:center"></div></div><div id="fn" class="dim" style="display:none;font-size:17px"></div><div class="rg"><svg viewBox="0 0 200 200"><circle cx="100" cy="100" r="92" fill="none" stroke="var(--line)" stroke-width="3" stroke-dasharray="1 7.8" stroke-linecap="round"/><circle id="fc" cx="100" cy="100" r="92" fill="none" stroke="var(--red)" stroke-width="4" stroke-linecap="round" pathLength="100" stroke-dasharray="0 100"/></svg><div class="tt" id="tn"></div></div><div class="phw" id="phw"></div><div class="row" style="justify-content:center"><button class="go" id="fg" data-a="fg" style="width:auto;padding:14px 34px">يلا نبدأ</button><button class="ch" data-a="ff">إنهاء</button><button class="ch" data-a="fq">خروج</button></div></div>';document.body.appendChild(o);T0={dur:1500,rem:1500,run:0,el:0};$('#fs').innerHTML=D.subs.slice().sort((a,b)=>score(b)-score(a)).map(s=>`<option value="${s.id}" ${String(s.id)===String(id)?'selected':''}>${esc(s.name)}</option>`).join('');$('#fp').innerHTML=[15,25,45,60].map(m=>`<button class="ch ${m===25?'on':''}" data-a="fm" data-m="${m}">${m} دقيقة</button>`).join('');ftDraw()}
+function ftDraw(){$('#tn').textContent=mm(T0.rem);$('#fc').setAttribute('stroke-dasharray',(100*(1-T0.rem/T0.dur))+' 100')}
+function phr(t){const w=$('#phw');if(!w)return;const e=document.createElement('div');e.className='ph';e.textContent=t||PH[Math.floor(Math.random()*PH.length)];w.innerHTML='';w.appendChild(e);try{navigator.vibrate&&navigator.vibrate(20)}catch(x){}}
+function ftTick(){T0.rem=Math.max(0,Math.ceil((T0.end-Date.now())/1000));T0.el=T0.dur-T0.rem;ftDraw();if(T0.el%45===1&&T0.el>1)phr();if(T0.rem<=0)ftEnd(1)}
+function ftGo(){if(T0.run===1){clearInterval(T0.t);T0.run=2;$('#fg').textContent='كمّل';$('.rg').classList.remove('run');return}if(!T0.run){T0.sid=$('#fs').value;$('#fh').style.display='none';$('#fn').style.display='block';$('#fn').textContent=(D.subs.find(s=>String(s.id)===T0.sid)||{}).name;phr('يلا بينا، أنا معاك 💪')}T0.run=1;T0.end=Date.now()+T0.rem*1000;$('#fg').textContent='إيقاف مؤقت';$('.rg').classList.add('run');T0.t=setInterval(ftTick,1000)}
+function ftClose(){if(T0)clearInterval(T0.t);const e=$('#ft');e&&e.remove();T0=null}
+function ftEnd(full){clearInterval(T0.t);const m=Math.round(T0.dur/60),s=D.subs.find(x=>String(x.id)===T0.sid);if(!s||!full){if(s&&T0.run)toast('النقط بتتحسب بس لما العداد يخلص كله ⏳');ftClose();return}const p=Math.max(2,Math.round(m/5)*2);s.min=(s.min||0)+m;if(s.time&&!s.log[today()]){s.log[today()]='ok';s.pts=Math.min(100,s.pts+3)}gain(p,`برافو! ذاكرت ${m} دقيقة وكسبت ${p} نقطة 🎉`);save();ftClose()}
+function draw(){UI.view==='shop'?shop():UI.view==='setup'?setup(UI.vals):UI.open?detail(cur()):home()}
+document.addEventListener('click',e=>{const el=e.target.closest('[data-a]');if(!el)return;const a=el.dataset.a,s=UI.open?cur():null;
+ if(a==='open'){UI.open=+el.dataset.i||el.dataset.i;UI.open=D.subs.find(x=>String(x.id)===el.dataset.i).id}
+ else if(a==='ci'){const x=D.subs.find(x=>String(x.id)===el.dataset.i);if(!x.log[today()]){x.log[today()]='ok';x.pts=Math.min(100,x.pts+3);save()}}
+ else if(a==='back'){UI.open=null;UI.view='home';UI.add=0;if(!D.subs.length)UI.view='setup'}
+ else if(a==='sort'){D.sort=el.dataset.k;save()}
+ else if(a==='theme'){const r=document.documentElement;r.dataset.theme=r.dataset.theme==='light'?'dark':'light'}
+ else if(a==='spin'){openSpin()}else if(a==='sp'){doSpin()}else if(a==='acc'){chStart()}else if(a==='chok'){chWin()}else if(a==='chno'){chLose()}
+ else if(a==='snd'){D.snd=D.snd===0?1:0;save()}else if(a==='wel'){welcome()}
+ else if(s&&a==='pdf'){viewPdf(s.ch[+el.dataset.j].f[+el.dataset.k])}
+ else if(s&&(a==='fu'||a==='fd')){const L=s.ch[+el.dataset.j].f,k=+el.dataset.k,t=a==='fu'?k-1:k+1;if(t>=0&&t<L.length){[L[k],L[t]]=[L[t],L[k]];save()}}
+ else if(s&&a==='fx'){const L=s.ch[+el.dataset.j].f,[f]=L.splice(+el.dataset.k,1);idbOp('delete',f.id);save()}
+ else if(a==='shop'){UI={view:'shop'}}
+ else if(a==='buy'){buy(el.dataset.k)}
+ else if(a==='study'){openStudy(el.dataset.i)}
+ else if(a==='fm'){if(!T0.run){T0.dur=T0.rem=+el.dataset.m*60;ftDraw();[...$('#fp').children].forEach(c=>c.classList.toggle('on',c===el))}}
+ else if(a==='fg'){ftGo()}else if(a==='ff'){ftEnd()}else if(a==='fq'){ftClose()}
+ else if(a==='star'&&s){s.str=+el.dataset.n;save()}
+ else if(a==='lt'&&s){const l=s.lec[+el.dataset.j];l.s=el.checked;gain(l.s?5:-5,l.s?'+5 نقط، محاضرة اتذاكرت 📖':'');save()}
+ else if(a==='rl'&&s){s.lec.splice(+el.dataset.j,1);save()}
+ else if(a==='addlec'&&s){const d=$('#ld').value,t=$('#lt').value.trim();if(!d||!t){toast('اكتب التاريخ واسم المحاضرة');return}(s.lec=s.lec||[]).push({d,t,s:false});save()}
+ else if(a==='add'){UI={view:'setup',n:1,add:1}}
+ else if(a==='cnt'){UI.vals=collect();UI.n=+el.dataset.n}
+ else if(a==='start'){const ok=collect().some(v=>v.name.trim());if(!ok)return;create()}
+ else if(s&&a==='tg'){const c=s.ch[+el.dataset.j];c.d=el.checked;if(c.d){const n=todayCount()+1,b=n>1?Math.min(30,10*(n-1)):0;c.aw=10+b;c.dt=today();gain(c.aw,b?`+${c.aw} نقطة! 🔥 بونص عشان خلصت ${n} شابترز النهارده`:'+10 نقط، شابتر جديد خلص 👏')}else{gain(-(c.aw||0));c.aw=0;c.dt=''}save()}
+ else if(s&&a==='rm'){(s.ch[+el.dataset.j].f||[]).forEach(f=>idbOp('delete',f.id));s.ch.splice(+el.dataset.j,1);save()}
+ else if(s&&a==='addch'){s.ch.push({t:'شابتر '+(s.ch.length+1),d:false});save()}
+ else if(s&&a==='notime'){s.time='';save()}
+ else if(s&&a==='del'){s.ch.forEach(c=>(c.f||[]).forEach(f=>idbOp('delete',f.id)));D.subs=D.subs.filter(x=>x!==s);UI.open=null;save();if(!D.subs.length)UI={view:'setup',n:3}}
+ draw()});
+document.addEventListener('change',e=>{if(e.target.dataset.pj!=null){upPdf(+e.target.dataset.pj,e.target.files);return}const g=e.target.dataset.g,r=e.target.dataset.r;if(r){(D.rw=D.rw||{a:'',b:'',f:0})[r]=e.target.type==='checkbox'?(e.target.checked?1:0):e.target.value;save();draw();return}if(g){D.gpa[g]=e.target.value;save();draw();return}const k=e.target.dataset.k,s=UI.open&&cur();if(!k||!s)return;const v=e.target.value;
+ if(k==='name'&&v.trim())s.name=v.trim();else if(k==='imp')s.imp=+v;else if(k==='exam')s.exam=v;else if(k==='cn')s.ch[+e.target.dataset.j].t=v||'شابتر';
+ else if(k==='time'){s.time=v;if(v)s.tfrom=nowM()>tm(v)?addD(today()):today()}save();draw()});
+if(!D.subs.length)UI={view:'setup',n:3};
+applyTheme();draw();welcome();setInterval(()=>{if(UI.view==='home'&&!UI.open&&!document.activeElement.closest('input'))home()},60000);
+</script>
+</body>
+</html>
